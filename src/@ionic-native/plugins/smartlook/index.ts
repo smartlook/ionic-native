@@ -11,6 +11,14 @@ export class SmartlookSetupConfig {
   }
 }
 
+export class SmartlookResetSession {
+  private resetUser: string;
+
+  constructor(resetUser: string) {
+    this.resetUser = resetUser;
+  }
+}
+
 export class SmartlookUserIdentifier {
   private identifier: string;
   private sessionProperties: {};
@@ -144,6 +152,16 @@ export class Smartlook extends IonicNativePlugin {
    */
   @Cordova()
   isRecording(): Promise<boolean> {
+    return;
+  }
+
+  /**
+   * Resets current session and new session in dashboard is created.
+   * @param resetSession SmartlookResetSession object.
+   * @param resetSession.resetUser If set to TRUE new visitor is created in the dashboard.
+   */
+  @Cordova({ sync: true })
+  resetSession(resetSession: SmartlookResetSession): void {
     return;
   }
 
